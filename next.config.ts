@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'bcdn-2738.sayido.app',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

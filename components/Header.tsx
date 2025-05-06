@@ -9,7 +9,6 @@ export const Header = () => {
         width={600}
         height={400}
         style={{position: "absolute", left: 0, top: 0}}
-        unoptimized={true}
       />
       <div className='w-[70%] flex justify-end text-right'>
         <div className='flex flex-col gap-10 m-50 items-end'>
@@ -27,7 +26,6 @@ export const Header = () => {
         width={300}
         height={400}
         style={{position: "absolute", right: 130, top: 100}}
-        unoptimized={true}
       />
     </>
   )
