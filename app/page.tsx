@@ -1,102 +1,64 @@
-import Image from "next/image";
+"use client"
+import {ImageGallery} from "react-image-grid-gallery";
+import {OurHistory} from "@/components/OurHistory";
+import {Header} from "@/components/Header";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const imagesArray = [
+    {
+      id: "photo1",
+      alt: "Image1's alt text",
+      caption: "Image1's description",
+      src: "https://bcdn-2738.sayido.app/2gNtB3djFTh4JJ5aoFOS41khvKQ2/images/0e8bcba5-5fa3-1368-1610-1a2d40c8792d_coupleinthepark39BD65P.jpg?width=600&height=auto",
+    },
+    {
+      id: "photo2",
+      alt: "Image1's alt text",
+      caption: "Image1's description",
+      src: "https://bcdn-2738.sayido.app/QYs2OJz2UJSVU29IarT2JCT7Spj2/images/a97449c7-dd02-2dab-af91-7649f2e9e2bf_seabeachsandcouplelovesummer_t20_Xzoo3b.jpg?width=600&height=auto",
+    },
+    {
+      id: "photo3",
+      alt: "Image1's alt text",
+      caption: "Image1's description",
+      src: "https://bcdn-2738.sayido.app/QYs2OJz2UJSVU29IarT2JCT7Spj2/images/b9dc6a44-347f-3f59-95d4-114aeab92e53_hikingthroughthewoodsholdinghands_t20_9GxX6B1.jpg?width=600&height=auto",
+    },
+    {
+      id: "photo4",
+      alt: "Image1's alt text",
+      caption: "Image1's description",
+      src: "https://bcdn-2738.sayido.app/QYs2OJz2UJSVU29IarT2JCT7Spj2/images/b05c1635-cb04-66e5-d34b-ba3c5fefd5b4_sunsunsetcouplelovegirlboysweetbeautiful_t20_YQBov1.jpg?width=600&height=auto",
+    },
+    {
+      id: "photo5",
+      alt: "Image1's alt text",
+      caption: "Image1's description",
+      src: "https://bcdn-2738.sayido.app/QYs2OJz2UJSVU29IarT2JCT7Spj2/images/d74c8796-e84a-7aee-55b8-6ede84339821_attractiveyoungcouplesittingbyacampfireandtent_t20_o149oP.jpg?width=600&height=auto",
+    },
+    {
+      id: "photo6",
+      alt: "Image1's alt text",
+      caption: "Image1's description",
+      src: "https://bcdn-2738.sayido.app/QYs2OJz2UJSVU29IarT2JCT7Spj2/images/d0fbabcd-4dbe-454c-4475-7f922f38de60_youngcoupleinlove_t20_nL2J1K.jpg?width=600&height=auto",
+    }
+  ];
+
+  return (
+    <div
+      className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center text-center">
+        <Header/>
+        <div className="w-[70%]">
+          <ImageGallery imagesInfoArray={imagesArray} gapSize={10} columnCount={3}/>
         </div>
+        <OurHistory/>
+        <hr className="border-brown-200 w-150"/>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className="text-sm italic">
+          Η σελίδα του γάμου μας φτιάχτηκε από εμάς
+        </div>
       </footer>
     </div>
   );
