@@ -8,7 +8,11 @@ interface Selection {
   table: string | null;
 }
 
-export const TableModal = (props: any) => {
+interface TableModalProps {
+  onClose?: () => void;
+}
+
+export const TableModal = (props: TableModalProps) => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<Selection>>(null);
 
   return (
