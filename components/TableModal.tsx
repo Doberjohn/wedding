@@ -1,5 +1,6 @@
 import Select, {SingleValue} from "react-select";
 import {useState} from "react";
+import {guestList} from "@/config/guests";
 
 interface Selection {
   value: string | null;
@@ -9,12 +10,6 @@ interface Selection {
 
 export const TableModal = (props: any) => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<Selection>>(null);
-
-  const options = [
-    { value: '1', label: 'Φανίδης Ιωάννης', table: '1' },
-    { value: '2', label: 'Δουλκερίδου Χριστίνα', table: '1' },
-    { value: '3', label: 'Διπλάρης Κωνσταντίνος', table: '4' },
-  ];
 
   return (
     <div className="overflow-y-auto overflow-x-hidden fixed flex top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -40,7 +35,7 @@ export const TableModal = (props: any) => {
                 <Select
                   className="w-full text-left"
                   isSearchable={true}
-                  options={options}
+                  options={guestList}
                   value={selectedOption}
                   onChange={(selection) => setSelectedOption(selection)}
                   isClearable={true}
