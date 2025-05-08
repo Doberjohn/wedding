@@ -1,9 +1,9 @@
 "use client"
 // import {ImageGallery} from "react-image-grid-gallery";
-// import {OurHistory} from "@/components/OurHistory";
+import {OurHistory} from "@/components/OurHistory";
 import {Header} from "@/components/Header";
-// import {Schedule} from "@/components/Schedule";
-// import {Divider} from "@/components/Divider";
+import {Schedule} from "@/components/Schedule";
+import {Divider} from "@/components/Divider";
 // import {Photoshare} from "@/components/Photoshare";
 // import {Countdown} from "@/components/Countdown";
 // import {images} from "@/config/images";
@@ -19,11 +19,11 @@ export default function Home() {
         {/*  <ImageGallery imagesInfoArray={images} gapSize={10} columnCount={3}/>*/}
         {/*</div>*/}
 
-        {/*<OurHistory/>*/}
-        {/*<Divider/>*/}
+        <OurHistory/>
+        <Divider/>
 
-        {/*<Schedule/>*/}
-        {/*<Divider/>*/}
+        <Schedule/>
+        <Divider/>
 
         {/*<Photoshare/>*/}
         {/*<Divider/>*/}

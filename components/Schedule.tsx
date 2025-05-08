@@ -11,11 +11,11 @@ export const Schedule = () => {
   }
 
   return (
-    <div className="w-180 flex flex-col gap-10">
+    <div className="w-[100vw] md:w-180 flex flex-col gap-10">
       <div className="text-3xl">
         Το πρόγραμμα
       </div>
-      <div className='flex items-center justify-between gap-5'>
+      <div className='flex flex-col md:flex-row items-center justify-between gap-20 md:gap-10'>
         <div className="flex flex-col items-center justify-center gap-5">
           <div className='text-2xl'>Στέψη - 7 μ.μ.</div>
           <div>Ιερός Ναός Αγίων Νεομαρτύρων, Πτολεμαΐδα</div>
