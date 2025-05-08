@@ -1,18 +1,18 @@
 export const images = [
   {
-    id: "couple_photo_3",
+    id: "couple_photo_1",
     alt: "Image1's alt text",
     caption: "Image1's description",
-    src: "/couple_photo_1.webp",
+    src: "/couple_photo_3.png",
   },
   {
-    id: "couple_photo_3",
+    id: "couple_photo_2",
     alt: "Image1's alt text",
     caption: "Image1's description",
     src: "couple_photo_2.webp",
   },
   {
-    id: "couple_photo_3",
+    id: "couple_photo_1",
     alt: "Image1's alt text",
     caption: "Image1's description",
     src: "couple_photo_3.webp",
