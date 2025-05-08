@@ -10,9 +10,8 @@ import {Divider} from "@/components/Divider";
 
 export default function Home() {
   return (
-    <div
-      className="grid items-center justify-items-center font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[50px] row-start-2 items-center text-center">
+    <div className="font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-[50px] items-center text-center">
         <Header/>
 
         {/*<div className="w-[70%]">*/}
@@ -30,7 +29,7 @@ export default function Home() {
 
         {/*<Countdown/>*/}
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+      <footer className="flex gap-[24px] flex-wrap items-center justify-center">
         <div className="w-[60vw] lg:w-[100%] text-sm italic text-center">
           Η σελίδα του γάμου μας φτιάχτηκε με αγάπη από εμάς
         </div>
