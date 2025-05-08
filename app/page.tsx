@@ -1,6 +1,6 @@
 "use client"
-// import {images} from "@/config/images";
-// import {ImageGallery} from "react-image-grid-gallery";
+import {images} from "@/config/images";
+import {ImageGallery} from "react-image-grid-gallery";
 import {OurHistory} from "@/components/OurHistory";
 import {Header} from "@/components/Header";
 import {Schedule} from "@/components/Schedule";
@@ -14,9 +14,13 @@ export default function Home() {
       <main className="flex flex-col gap-[50px] items-center text-center">
         <Header/>
 
-        {/*<div className="w-[70%]">*/}
-        {/*  <ImageGallery imagesInfoArray={images} gapSize={10} columnCount={3}/>*/}
-        {/*</div>*/}
+        <div className="hidden md:block md:w-[70vw]">
+          <ImageGallery imagesInfoArray={images} gapSize={10} columnCount={3}/>
+        </div>
+
+        <div className="md:hidden w-[95vw]">
+          <ImageGallery imagesInfoArray={[images[0]]} gapSize={10} columnCount={3}/>
+        </div>
 
         <OurHistory/>
         <Divider/>
@@ -30,8 +34,8 @@ export default function Home() {
         <Countdown/>
       </main>
       <footer className="flex items-center mb-5 justify-center">
-        <div className="w-[60vw] lg:w-[100%] text-sm italic text-center">
-          Η σελίδα του γάμου μας φτιάχτηκε με αγάπη από εμάς
+        <div className="w-[50vw] lg:w-[100%] text-sm italic text-center">
+        Η σελίδα του γάμου μας φτιάχτηκε με αγάπη από εμάς
         </div>
       </footer>
     </div>

@@ -14,7 +14,7 @@ export const Header = () => {
       {/*  style={{position: "absolute", left: 0, top: 0}}*/}
       {/*/>*/}
       <div className='w-[100%] xl:w-[70%] flex justify-center xl:justify-end text-center'>
-        <div className='flex flex-col gap-10 mt-50 mb-20 items-center xl:items-end'>
+        <div className='flex flex-col gap-10 mt-30 mb-10 items-center xl:items-end'>
           <div className='text-4xl md:text-7xl'>Γιάννης & Χριστίνα</div>
           <div className='text-xl text-3xl'>Σάββατο 23 Αυγούστου 2025</div>
           <Button onClick={()=> setShowModal(true)}>Βρες το τραπέζι σου</Button>
