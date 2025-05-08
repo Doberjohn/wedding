@@ -31,7 +31,7 @@ export default function Home() {
         {/*<Countdown/>*/}
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <div className="w-[60%] md:w-[100%] text-sm italic text-center">
+        <div className="w-[60vw] lg:w-[100%] text-sm italic text-center">
           Η σελίδα του γάμου μας φτιάχτηκε με αγάπη από εμάς
         </div>
       </footer>
