@@ -23,8 +23,6 @@ export const Countdown = () => {
     const days = Math.floor(time / (1000 * 60 * 60 * 24));
     const months = Math.floor(days / 30);
     const hours = Math.floor((time / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((time / (1000 * 60)) % 60);
-    const seconds = Math.floor((time / 1000) % 60);
 
     return (
       <div className="flex gap-20">
@@ -40,14 +38,14 @@ export const Countdown = () => {
           <div className='text-3xl'>{hours.toString()}</div>
           <div>ώρες</div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-3">
-          <div className='text-3xl'>{minutes.toString()}</div>
-          <div>λεπτά</div>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-3">
-          <div className='text-3xl'>{seconds.toString()}</div>
-          <div>δευτερόλεπτα</div>
-        </div>
+        {/*<div className="flex flex-col items-center justify-center gap-3">*/}
+        {/*  <div className='text-3xl'>{minutes.toString()}</div>*/}
+        {/*  <div>λεπτά</div>*/}
+        {/*</div>*/}
+        {/*<div className="flex flex-col items-center justify-center gap-3">*/}
+        {/*  <div className='text-3xl'>{seconds.toString()}</div>*/}
+        {/*  <div>δευτερόλεπτα</div>*/}
+        {/*</div>*/}
       </div>
     );
   };

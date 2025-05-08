@@ -1,12 +1,12 @@
 "use client"
+// import {images} from "@/config/images";
 // import {ImageGallery} from "react-image-grid-gallery";
 import {OurHistory} from "@/components/OurHistory";
 import {Header} from "@/components/Header";
 import {Schedule} from "@/components/Schedule";
 import {Divider} from "@/components/Divider";
-// import {Photoshare} from "@/components/Photoshare";
-// import {Countdown} from "@/components/Countdown";
-// import {images} from "@/config/images";
+import {Photoshare} from "@/components/Photoshare";
+import {Countdown} from "@/components/Countdown";
 
 export default function Home() {
   return (
@@ -24,12 +24,12 @@ export default function Home() {
         <Schedule/>
         <Divider/>
 
-        {/*<Photoshare/>*/}
-        {/*<Divider/>*/}
+        <Photoshare/>
+        <Divider/>
 
-        {/*<Countdown/>*/}
+        <Countdown/>
       </main>
-      <footer className="flex gap-[24px] flex-wrap items-center justify-center">
+      <footer className="flex items-center mb-5 justify-center">
         <div className="w-[60vw] lg:w-[100%] text-sm italic text-center">
           Η σελίδα του γάμου μας φτιάχτηκε με αγάπη από εμάς
         </div>
