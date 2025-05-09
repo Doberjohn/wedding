@@ -12,7 +12,7 @@ export const images = [
     src: "couple_photo_2.webp",
   },
   {
-    id: "couple_photo_1",
+    id: "couple_photo_3",
     alt: "Image1's alt text",
     caption: "Image1's description",
     src: "couple_photo_3.webp",
