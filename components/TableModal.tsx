@@ -16,16 +16,19 @@ export const TableModal = (props: TableModalProps) => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<Selection>>(null);
 
   return (
-    <div className="overflow-y-auto overflow-x-hidden fixed flex top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <div className="relative p-4 w-full max-w-md max-h-full">
-        <div className="relative bg-stone-600 rounded-lg shadow-sm">
+    <>
+      <div onClick={props.onClose}
+        className="overflow-y-auto overflow-x-hidden flex fixed top-0 z-5 h-[100vh] bg-black max-h-full w-full opacity-80">
+      </div>
+      <div className="fixed top-[45vh] z-10 p-4 w-full max-w-md max-h-full">
+        <div className="relative bg-[#F6F7F5] text-[#573710] rounded-lg shadow-sm">
           <div
             className="flex items-center p-4 md:p-5 rounded-t">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-xl font-semibold text-[#573710]">
               Βρες το τραπέζι σου
             </h3>
             <button type="button" onClick={props.onClose}
-                    className="end-2.5 text-stone-400 bg-transparent hover:bg-stone-200 hover:text-stone-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-stone-600 dark:hover:text-white cursor-pointer">
+                    className="end-2.5 bg-transparent hover:bg-stone-200 hover:text-stone-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-stone-600 dark:hover:text-white cursor-pointer">
               <svg className="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
                    viewBox="0 0 14 14">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -47,14 +50,14 @@ export const TableModal = (props: TableModalProps) => {
                 />
                 {!selectedOption && (
                   <div className="flex flex-col">
-                    <div className='text-sm text-white text-center'>Γράψε το ονοματεπώνυμο σου για να βρεις</div>
-                    <div className='text-sm text-white text-center'>τον αριθμό του τραπεζιού σου</div>
+                    <div className='text-sm text-center'>Γράψε το ονοματεπώνυμο σου για να βρεις</div>
+                    <div className='text-sm text-center'>τον αριθμό του τραπεζιού σου</div>
                   </div>
                 )}
                 {selectedOption && (
                   <div className="flex flex-col gap-2">
-                    <div className='text-sm text-white text-center'>Κάθεσε στο τραπέζι</div>
-                    <div className='text-4xl text-white text-center'>{selectedOption.table}</div>
+                    <div className='text-sm text-center'>Κάθεσε στο τραπέζι</div>
+                    <div className='text-4xl text-center'>{selectedOption.table}</div>
                   </div>
                 )}
               </div>
@@ -62,6 +65,6 @@ export const TableModal = (props: TableModalProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

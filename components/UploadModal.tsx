@@ -58,17 +58,19 @@ export const UploadModal = (props: UploadModalProps) => {
   }
 
   return (
-    <div
-      className="overflow-y-auto overflow-x-hidden fixed flex top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full text-white">
-      <div className="relative p-4 w-full max-w-md max-h-full">
-        <div className="relative bg-stone-500 rounded-lg shadow-sm">
+    <>
+      <div onClick={props.onClose}
+           className="overflow-y-auto overflow-x-hidden flex fixed top-0 z-5 h-[100vh] bg-black max-h-full w-full opacity-80">
+      </div>
+      <div className="fixed top-[45vh] z-10 p-4 w-full max-w-md max-h-full">
+        <div className="relative bg-[#F6F7F5] text-[#573710] rounded-lg shadow-sm">
           <div
             className="flex items-center p-4 md:p-5 rounded-t">
-            <h3 className="text-xl font-semibold text-white dark:text-white">
+            <h3 className="text-xl font-semibold">
               Επίλεξε φωτόγραφιες
             </h3>
             <button type="button" onClick={props.onClose}
-                    className="end-2.5 text-white bg-transparent hover:bg-stone-200 hover:text-white rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-stone-600 dark:hover:text-white cursor-pointer">
+                    className="end-2.5 bg-transparent hover:bg-stone-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-stone-600 cursor-pointer">
               <svg className="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none"
                    viewBox="0 0 14 14">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -92,7 +94,7 @@ export const UploadModal = (props: UploadModalProps) => {
                 <div className="flex flex-col items-center justify-center">
                   {isUploading && (
                     <>
-                      <ClockLoader color='white'/>
+                      <ClockLoader color='#573710'/>
                       <div className='text-sm italic mt-5'>
                         Οι φωτογραφίες σας ανεβαίνουν...
                       </div>
@@ -101,7 +103,7 @@ export const UploadModal = (props: UploadModalProps) => {
                   {!isUploading && (
                     <>
                       <svg onClick={onImageUpload}
-                           className="w-16 h-16 m-3 p-3 border-1 border-dashed text-white cursor-pointer"
+                           className="w-16 h-16 m-3 p-3 border-1 border-dashed cursor-pointer"
                            aria-hidden="true"
                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
@@ -109,7 +111,7 @@ export const UploadModal = (props: UploadModalProps) => {
                       </svg>
                       {images.length === 0 && (
                         <div className='text-sm italic mt-3'>
-                          Επίλεξτε μέχρι {maxPhotosPerUpload} φωτογραφίες κάθε φορά
+                          Επίλεξε μέχρι {maxPhotosPerUpload} φωτογραφίες κάθε φορά
                         </div>
                       )}
                       {images.length > 0 && (
@@ -141,7 +143,7 @@ export const UploadModal = (props: UploadModalProps) => {
       </div>
       {showAlert && (
         <div
-          className="fixed bottom-0 bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+          className="fixed bottom-0 z-10 bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
           role="alert">
           <div className="flex">
             <div className="py-1 content-center">
@@ -158,6 +160,6 @@ export const UploadModal = (props: UploadModalProps) => {
           </div>
         </div>
       )}
-    </div>
+    </>
   )
 }
