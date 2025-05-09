@@ -20,7 +20,7 @@ export const TableModal = (props: TableModalProps) => {
       <div onClick={props.onClose}
         className="overflow-y-auto overflow-x-hidden flex fixed top-0 z-5 h-[100vh] bg-black max-h-full w-full opacity-80">
       </div>
-      <div className="fixed top-[45vh] z-10 p-4 w-full max-w-md max-h-full">
+      <div className="fixed top-[40vh] z-10 p-4 w-full max-w-md max-h-full">
         <div className="relative bg-[#F6F7F5] text-[#573710] rounded-lg shadow-sm">
           <div
             className="flex items-center p-4 md:p-5 rounded-t">
