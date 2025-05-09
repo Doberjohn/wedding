@@ -9,6 +9,7 @@ interface UploadModalProps {
 
 export const UploadModal = (props: UploadModalProps) => {
   const [images, setImages] = useState<ImageListType>([]);
+  const maxPhotosPerUpload = 20;
 
   const onChange = (imageList: ImageListType) => {
     console.log(imageList);
@@ -38,7 +39,7 @@ export const UploadModal = (props: UploadModalProps) => {
               multiple={true}
               value={images}
               onChange={onChange}
-              maxNumber={9}
+              maxNumber={maxPhotosPerUpload}
               dataURLKey="data_url"
             >
               {({
@@ -52,6 +53,11 @@ export const UploadModal = (props: UploadModalProps) => {
                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                           d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"/>
                   </svg>
+                  {images.length === 0 && (
+                    <div className='text-sm italic mt-3'>
+                      Επίλεξτε μέχρι {maxPhotosPerUpload} φωτογραφίες κάθε φορά
+                    </div>
+                  )}
                   {images.length > 0 && (
                     <Divider/>
                   )}
