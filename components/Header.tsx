@@ -1,10 +1,13 @@
 import {Button} from "@/components/Button";
 import {TableModal} from "@/components/TableModal";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export const Header = () => {
-  const [showModal, setShowModal] =
-    useState((window.location.search.includes('search')));
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    setShowModal(window.location.search.includes('search'));
+  }, []);
 
   return (
     <>

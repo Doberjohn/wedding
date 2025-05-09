@@ -1,10 +1,14 @@
 import {Button} from "@/components/Button";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {UploadModal} from "@/components/UploadModal";
 
 export const Photoshare = () => {
-  const [showModal, setShowModal] =
-    useState(window.location.search.includes('upload'));
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    setShowModal(window.location.search.includes('upload'));
+  }, []);
+
 
   return (
     <>
