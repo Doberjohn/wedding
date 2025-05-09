@@ -62,7 +62,7 @@ export const UploadModal = (props: UploadModalProps) => {
       <div onClick={props.onClose}
            className="overflow-y-auto overflow-x-hidden flex fixed top-0 z-5 h-[100vh] bg-black max-h-full w-full opacity-80">
       </div>
-      <div className="fixed top-[40vh] z-10 p-4 w-full max-w-md max-h-full">
+      <div className="fixed top-0 z-10 p-4 h-[100vh] w-full max-w-md max-h-full overflow-y-auto overflow-x-hidden">
         <div className="relative bg-[#F6F7F5] text-[#573710] rounded-lg shadow-sm">
           <div
             className="flex items-center p-4 md:p-5 rounded-t">
@@ -102,21 +102,23 @@ export const UploadModal = (props: UploadModalProps) => {
                   )}
                   {!isUploading && (
                     <>
-                      <div className='w-full flex justify-center' onClick={onImageUpload}>
-                        <svg
-                          className="w-16 h-16 m-3 p-3 border-1 border-dashed cursor-pointer"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                                d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"/>
-                        </svg>
-                      </div>
+                      {images.length < 20 && (
+                        <div className='w-full flex justify-center' onClick={onImageUpload}>
+                          <svg
+                            className="w-16 h-16 m-3 p-3 border-1 border-dashed cursor-pointer"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                  d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"/>
+                          </svg>
+                        </div>
+                      )}
                       {images.length === 0 && (
                         <div className='text-sm italic mt-3'>
                           Επίλεξε μέχρι {maxPhotosPerUpload} φωτογραφίες κάθε φορά
                         </div>
                       )}
-                      {images.length > 0 && (
+                      {images.length > 0 && images.length < 20 && (
                         <Divider/>
                       )}
                       <div className='flex flex-row flex-wrap gap-5 w-70'>
