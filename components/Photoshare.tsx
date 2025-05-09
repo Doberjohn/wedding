@@ -3,7 +3,8 @@ import {useState} from "react";
 import {UploadModal} from "@/components/UploadModal";
 
 export const Photoshare = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] =
+    useState(window.location.search.includes('upload'));
 
   return (
     <>
