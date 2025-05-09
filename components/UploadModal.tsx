@@ -62,12 +62,12 @@ export const UploadModal = (props: UploadModalProps) => {
       <div onClick={props.onClose}
            className="overflow-y-auto overflow-x-hidden flex fixed top-0 z-5 h-[100vh] bg-black max-h-full w-full opacity-80">
       </div>
-      <div className={`fixed top-[${images.length === 0 ? '40' : '0'}vh] z-10 p-4 h-[100vh] w-full max-w-md max-h-full overflow-y-auto overflow-x-hidden`}>
+      <div className={`fixed top-[${images.length === 0 ? '40' : '0'}vh] z-10 p-4 w-full max-w-md max-h-full overflow-y-auto overflow-x-hidden`}>
         <div className="relative bg-[#F6F7F5] text-[#573710] rounded-lg shadow-sm">
           <div
             className="flex items-center p-4 md:p-5 rounded-t">
             <h3 className="text-xl font-semibold">
-              Επίλεξε φωτόγραφιες
+              Επίλεξε φωτογραφίες
             </h3>
             <button type="button" onClick={props.onClose}
                     className="end-2.5 bg-transparent hover:bg-stone-200 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-stone-600 cursor-pointer">
