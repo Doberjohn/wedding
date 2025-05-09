@@ -1,23 +1,65 @@
-import {useState} from "react";
+import axios from "axios";
+import {useEffect, useState} from "react";
 import ImageUploading, {ImageListType} from "react-images-uploading";
 import {Divider} from "@/components/Divider";
 import {Button} from "@/components/Button";
+import {ClockLoader} from "react-spinners";
 
 interface UploadModalProps {
   onClose?: () => void;
 }
 
 export const UploadModal = (props: UploadModalProps) => {
-  const [images, setImages] = useState<ImageListType>([]);
   const maxPhotosPerUpload = 20;
+  const uploadEndpoint = 'https://api.imgbb.com/1/upload?key=fce554aec47d11487d1204fa2e64c1a3';
+
+  const [images, setImages] = useState<ImageListType>([]);
+  const [isUploading, setIsUploading] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
+  useEffect(()=> {
+    if (showAlert) {
+      setTimeout(()=> {
+        setShowAlert(false);
+      }, 5000);
+    }
+  }, [showAlert]);
+
 
   const onChange = (imageList: ImageListType) => {
-    console.log(imageList);
     setImages(imageList);
   };
 
+  const uploadPhotos = async () => {
+    setIsUploading(true);
+    const promises = [];
+
+    for (const image of images) {
+      const formData = new FormData();
+      const fileUrl = image.data_url.replace(/^data:image\/[a-z]+;base64,/, "");
+      formData.append("image", fileUrl);
+      const promise = axios.post(uploadEndpoint, formData, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      });
+      promises.push(promise);
+    }
+
+    Promise.all(promises).then((res) => {
+      console.log(res);
+      setShowAlert(true);
+    }).catch(err => {
+      console.log(err);
+    }).finally(()=> {
+      setImages([]);
+      setIsUploading(false);
+    });
+  }
+
   return (
-    <div className="overflow-y-auto overflow-x-hidden fixed flex top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full text-white">
+    <div
+      className="overflow-y-auto overflow-x-hidden fixed flex top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full text-white">
       <div className="relative p-4 w-full max-w-md max-h-full">
         <div className="relative bg-stone-500 rounded-lg shadow-sm">
           <div
@@ -48,33 +90,47 @@ export const UploadModal = (props: UploadModalProps) => {
                   onImageRemove,
                 }) => (
                 <div className="flex flex-col items-center justify-center">
-                  <svg onClick={onImageUpload} className="w-16 h-16 m-3 p-3 border-1 border-dashed text-white cursor-pointer" aria-hidden="true"
-                       xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                          d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"/>
-                  </svg>
-                  {images.length === 0 && (
-                    <div className='text-sm italic mt-3'>
-                      Επίλεξτε μέχρι {maxPhotosPerUpload} φωτογραφίες κάθε φορά
-                    </div>
-                  )}
-                  {images.length > 0 && (
-                    <Divider/>
-                  )}
-                  <div className='flex flex-row flex-wrap gap-5 w-70'>
-                    {imageList.map((image, index) => (
-                      <div key={index}>
-                        <img src={image['data_url']} className='w-20' alt=''/>
-                        <div className='mt-1'>
-                          <button onClick={() => onImageRemove(index)}>Διαγραφή</button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  {images.length > 0 && (
+                  {isUploading && (
                     <>
-                      <Divider/>
-                      <Button>Αποστολή</Button>
+                      <ClockLoader color='white'/>
+                      <div className='text-sm italic mt-5'>
+                        Οι φωτογραφίες σας ανεβαίνουν...
+                      </div>
+                    </>
+                  )}
+                  {!isUploading && (
+                    <>
+                      <svg onClick={onImageUpload}
+                           className="w-16 h-16 m-3 p-3 border-1 border-dashed text-white cursor-pointer"
+                           aria-hidden="true"
+                           xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                              d="M12 5v9m-5 0H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2M8 9l4-5 4 5m1 8h.01"/>
+                      </svg>
+                      {images.length === 0 && (
+                        <div className='text-sm italic mt-3'>
+                          Επίλεξτε μέχρι {maxPhotosPerUpload} φωτογραφίες κάθε φορά
+                        </div>
+                      )}
+                      {images.length > 0 && (
+                        <Divider/>
+                      )}
+                      <div className='flex flex-row flex-wrap gap-5 w-70'>
+                        {imageList.map((image, index) => (
+                          <div key={index}>
+                            <img src={image['data_url']} className='w-20' alt=''/>
+                            <div className='mt-1'>
+                              <button onClick={() => onImageRemove(index)}>Διαγραφή</button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      {images.length > 0 && (
+                        <>
+                          <Divider/>
+                          <Button onClick={uploadPhotos}>Αποστολή</Button>
+                        </>
+                      )}
                     </>
                   )}
                 </div>
@@ -83,6 +139,25 @@ export const UploadModal = (props: UploadModalProps) => {
           </div>
         </div>
       </div>
+      {showAlert && (
+        <div
+          className="fixed bottom-0 bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+          role="alert">
+          <div className="flex">
+            <div className="py-1 content-center">
+              <svg className="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+                   viewBox="0 0 20 20">
+                <path
+                  d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
+              </svg>
+            </div>
+            <div>
+              <p className="font-bold">Οι φωτογραφίες σου ανέβηκαν!</p>
+              <p className="text-sm mt-2">Σε ευχαριστούμε που μοιράστηκες τις όμορφες αναμνήσεις σου μαζί μας!</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
