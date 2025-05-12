@@ -3,7 +3,6 @@ import {images} from "@/config/images";
 import {ImageGallery} from "react-image-grid-gallery";
 import {OurHistory} from "@/components/OurHistory";
 import {Header} from "@/components/Header";
-import {Schedule} from "@/components/Schedule";
 import {Divider} from "@/components/Divider";
 import {Photoshare} from "@/components/Photoshare";
 import {Countdown} from "@/components/Countdown";
