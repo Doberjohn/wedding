@@ -29,9 +29,6 @@ export default function Home() {
         <OurHistory/>
         <Divider/>
 
-        <Schedule/>
-        <Divider/>
-
         <Photoshare/>
         <Divider/>
 
