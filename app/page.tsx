@@ -33,11 +33,6 @@ export default function Home() {
 
         <Countdown/>
       </main>
-      <footer className="flex items-center mb-5 justify-center">
-        <div className="w-[50vw] lg:w-[100%] text-sm italic text-center">
-          Η σελίδα του γάμου μας φτιάχτηκε με αγάπη από εμάς
-        </div>
-      </footer>
     </div>
   );
 }
