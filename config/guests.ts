@@ -180,6 +180,11 @@ export const guestList = [
     "value": "48"
   },
   {
+    "label": "Γεωργιάδου Στέλλα",
+    "table": "1",
+    "value": "296"
+  },
+  {
     "label": "Γιαγκοπούλου Δήμητρα",
     "table": "1",
     "value": "71"
@@ -528,6 +533,11 @@ export const guestList = [
     "label": "Κιουμουρτζή Στελλίνα",
     "table": "1",
     "value": "57"
+  },
+  {
+    "label": "Κόλια Χριστίνα",
+    "table": "1",
+    "value": "300"
   },
   {
     "label": "Κοσμίδου Μακρίνα",
@@ -1383,6 +1393,11 @@ export const guestList = [
     "label": "Φιλιππίδης Γρηγόρης",
     "table": "1",
     "value": "244"
+  },
+  {
+    "label": "Φυλαχτίδου Άρτεμις",
+    "table": "1",
+    "value": "294"
   },
   {
     "label": "Φώτα Θεσ/νίκη Κουμπάρα",
