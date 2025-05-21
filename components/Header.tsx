@@ -12,7 +12,6 @@ export const Header = () => {
     setShowModal(window.location.search.includes('search'));
   }, []);
 
-  console.log(isMobile)
   return (
     <>
       <div>
