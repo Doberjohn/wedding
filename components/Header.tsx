@@ -1,12 +1,15 @@
 import {Button} from "@/components/Button";
 import {TableModal} from "@/components/TableModal";
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import Image from "next/image";
 import {Schedule} from "@/components/Schedule";
-import { isMobile } from 'react-device-detect';
 
 export const Header = () => {
   const [showModal, setShowModal] = useState(false);
+
+  const isMobile = useMemo(() => {
+    return window.matchMedia("(max-width: 600px)").matches
+  }, []);
 
   useEffect(() => {
     setShowModal(window.location.search.includes('search'));
@@ -29,7 +32,7 @@ export const Header = () => {
           <Image
             src={'/names.png'}
             alt='names'
-            width={isMobile ? 350: 500}
+            width={isMobile ? 350: 550}
             height={0}
           />
           <div className='flex gap-10 items-center justify-center'>
