@@ -3,6 +3,7 @@ import {TableModal} from "@/components/TableModal";
 import {useEffect, useState} from "react";
 import Image from "next/image";
 import {Schedule} from "@/components/Schedule";
+import { isMobile } from 'react-device-detect';
 
 export const Header = () => {
   const [showModal, setShowModal] = useState(false);
@@ -11,22 +12,25 @@ export const Header = () => {
     setShowModal(window.location.search.includes('search'));
   }, []);
 
+  console.log(isMobile)
   return (
     <>
       <div>
-        <div className='flex items-center justify-center w-[100vw] h-200 bg-right bg-[url(/banner.jpg)]'>
-          <Image
-            src={'/invitation.png'}
-            alt='invitation'
-            width={450}
-            height={0}
-          />
+        <div className='flex items-center justify-center w-[100vw] bg-right bg-[url(/banner.jpg)] h-70 bg-cover md:h-200 md:bg-initial'>
+          <div className='hidden md:block'>
+            <Image
+              src={'/invitation.png'}
+              alt='invitation'
+              width={450}
+              height={0}
+            />
+          </div>
         </div>
         <div className='flex flex-col gap-10 items-center justify-center w-[100vw] py-15 bg-[#d7d8d4]'>
           <Image
             src={'/names.png'}
-            alt='invitation'
-            width={700}
+            alt='names'
+            width={isMobile ? 350: 500}
             height={0}
           />
           <div className='flex gap-10 items-center justify-center'>

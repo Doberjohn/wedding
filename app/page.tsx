@@ -12,10 +12,6 @@ export default function Home() {
     <div className="font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[50px] items-center text-center">
 
-        <div className="md:hidden">
-          <ImageGallery imagesInfoArray={[images[0]]} gapSize={10} columnCount={3}/>
-        </div>
-
         <Header/>
         <div className="md:hidden">
           <Divider/>
