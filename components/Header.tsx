@@ -6,7 +6,7 @@ import {Schedule} from "@/components/Schedule";
 
 export const Header = () => {
   const [showModal, setShowModal] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
 
   useEffect(() => {
