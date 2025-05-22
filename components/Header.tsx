@@ -1,18 +1,17 @@
 import {Button} from "@/components/Button";
 import {TableModal} from "@/components/TableModal";
-import {useEffect, useMemo, useState} from "react";
+import {useEffect, useState} from "react";
 import Image from "next/image";
 import {Schedule} from "@/components/Schedule";
 
 export const Header = () => {
   const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const isMobile = useMemo(() => {
-    return window.matchMedia("(max-width: 600px)").matches
-  }, []);
 
   useEffect(() => {
     setShowModal(window.location.search.includes('search'));
+    setIsMobile(window.matchMedia("(max-width: 600px)").matches);
   }, []);
 
   return (
