@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[50px] items-center text-center">
-
         <Header/>
         <div className="md:hidden">
           <Divider/>
