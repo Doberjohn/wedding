@@ -6,6 +6,7 @@ import {Header} from "@/components/Header";
 import {Divider} from "@/components/Divider";
 import {Photoshare} from "@/components/Photoshare";
 import {Countdown} from "@/components/Countdown";
+import {HotelInfo} from "@/components/HotelInfo";
 
 export default function Home() {
   return (
@@ -24,6 +25,9 @@ export default function Home() {
         <Divider/>
 
         <Photoshare/>
+        <Divider/>
+
+        <HotelInfo/>
         <Divider/>
 
         <Countdown/>

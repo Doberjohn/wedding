@@ -16,11 +16,6 @@ export const Schedule = () => {
     <>
       <div className='flex flex-col lg:flex-row items-center justify-between mt-5 gap-15 md:gap-20'>
         <div className="flex flex-col items-center justify-center gap-5">
-          <div className='text-2xl underline cursor-pointer' onClick={onDateButtonClick}>
-            23 Αυγούστου 2025
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-5">
           <div className='text-2xl'>Στέψη | 7 μ.μ.</div>
           <div className='underline cursor-pointer' onClick={onCeremonyButtonClick}>
             Ιερός Ναός Αγίων Νεομαρτύρων, <br/> Πτολεμαΐδα
