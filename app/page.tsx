@@ -5,8 +5,6 @@ import {OurHistory} from "@/components/OurHistory";
 import {Header} from "@/components/Header";
 import {Divider} from "@/components/Divider";
 import {Photoshare} from "@/components/Photoshare";
-import {Countdown} from "@/components/Countdown";
-import {HotelInfo} from "@/components/HotelInfo";
 
 export default function Home() {
   return (
@@ -17,20 +15,21 @@ export default function Home() {
           <Divider/>
         </div>
 
-        <div className="hidden md:block md:w-[70vw]">
-          <ImageGallery imagesInfoArray={images} gapSize={10} columnCount={3}/>
-        </div>
 
         <OurHistory/>
         <Divider/>
 
+        <div className="hidden md:block md:w-[60vw]">
+          <div className="text-3xl mb-10">
+            Οι πιο όμορφες στιγμές
+          </div>
+          <ImageGallery imagesInfoArray={images} gapSize={15} columnCount={4}/>
+        </div>
+
+        <Divider/>
+
         <Photoshare/>
         <Divider/>
-
-        <HotelInfo/>
-        <Divider/>
-
-        <Countdown/>
       </main>
     </div>
   );
