@@ -10,7 +10,7 @@ export const Schedule = () => {
 
   return (
     <>
-      <div className='flex flex-col lg:flex-row items-center justify-between mt-5 gap-15 md:gap-20'>
+      <div className='flex flex-col lg:flex-row items-center justify-between my-5 gap-15 md:gap-20'>
         <div className="flex flex-col items-center justify-center gap-5">
           <div className='text-2xl'>Στέψη | 7 μ.μ.</div>
           <div className='underline cursor-pointer' onClick={onCeremonyButtonClick}>

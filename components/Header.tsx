@@ -16,32 +16,36 @@ export const Header = () => {
 
   return (
     <>
-      <div>
-        <div className='flex items-center justify-center w-[100vw] bg-right bg-[url(/banner.jpg)] h-70 bg-cover md:h-200 md:bg-initial'>
-          <div className='hidden md:block'>
-            <Image
-              src={'/invitation.png'}
-              alt='invitation'
-              width={450}
-              height={0}
-            />
-          </div>
+      <div className='flex flex-col gap-10 items-center justify-center w-[100vw] bg-[#d7d8d4]'>
+        <video
+          id="my-player"
+          className="video-js xl:px-70 xl:pt-5"
+          controls
+          preload="auto"
+          poster="/gallery/video_poster_3.png"
+          data-setup='{}'>
+          <source src="/videos/prewedding-demo.mp4" type="video/mp4"></source>
+          <p className="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank">
+              supports HTML5 video
+            </a>
+          </p>
+        </video>
+        <Image
+          src={'/names.png'}
+          alt='names'
+          width={isMobile ? 350 : 550}
+          height={0}
+        />
+        <div className='flex gap-10 items-center justify-center'>
+          <Button onClick={() => setShowModal(true)}>Βρες το τραπέζι σου</Button>
         </div>
-        <div className='flex flex-col gap-10 items-center justify-center w-[100vw] py-15 bg-[#d7d8d4]'>
-          <Image
-            src={'/names.png'}
-            alt='names'
-            width={isMobile ? 350: 550}
-            height={0}
-          />
-          <div className='flex gap-10 items-center justify-center'>
-            <Button onClick={()=> setShowModal(true)}>Βρες το τραπέζι σου</Button>
-          </div>
-          <Schedule/>
-        </div>
+        <Schedule/>
       </div>
       {showModal && (
-        <TableModal onClose={()=> setShowModal(false)}/>
+        <TableModal onClose={() => setShowModal(false)}/>
       )}
     </>
   )
