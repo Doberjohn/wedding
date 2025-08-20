@@ -21,7 +21,7 @@ export default function Home() {
 
         <div className="hidden md:block md:w-[60vw]">
           <div className="text-3xl mb-10">
-            Οι πιο όμορφες στιγμές
+            Οι πιο όμορφες στιγμές μας
           </div>
           <ImageGallery imagesInfoArray={images} gapSize={15} columnCount={4}/>
         </div>
